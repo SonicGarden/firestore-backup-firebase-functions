@@ -1,10 +1,11 @@
 {
   "name": "@sonicgarden/firestore-backup-firebase-functions",
   "version": "1.0.0",
-  "main": "lib/index.js",
+  "main": "lib/exportFirestore.js",
   "exports": {
-    ".": "./lib/index.js"
+    ".": "./lib/exportFirestore.js"
   },
+  "types": "lib/exportFirestore.d.ts",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/SonicGarden/firestore-backup-firebase-functions.git"
