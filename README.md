@@ -13,8 +13,8 @@ yarn add @sonicgarden/firestore-backup-firebase-functions
 ## Usage
 
 ```js
-import { exportFirestore } from '@sonicgarden/firestore-backup-firebase-functions';
-exportFirestore({
+import * as firestoreBackup from '@sonicgarden/firestore-backup-firebase-functions';
+export exportFirestore = firestoreBackup.exportFirestore({
   region: 'asia-northeast1',
   schedule: '0 0 * * *',
   timeZone: 'Asia/Tokyo',
@@ -22,7 +22,8 @@ exportFirestore({
 
 //or
 
-require('@sonicgarden/firestore-backup-firebase-functions')({
+const firestoreBackup = require('@sonicgarden/firestore-backup-firebase-functions');
+exports.exportFirestore = firestoreBackup.exportFirestore({
   region: 'asia-northeast1',
   schedule: '0 0 * * *',
   timeZone: 'Asia/Tokyo',
