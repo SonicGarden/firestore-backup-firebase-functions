@@ -13,29 +13,18 @@ yarn add @sonicgarden/firestore-backup-firebase-functions
 ## Usage
 
 ```js
-import * as firestoreBackup from '@sonicgarden/firestore-backup-firebase-functions';
-export exportFirestore = firestoreBackup.exportFirestore({
-  region: 'asia-northeast1',
-  schedule: '0 0 * * *',
-  timeZone: 'Asia/Tokyo',
-});
+import { firestoreBackup } from '@sonicgarden/firestore-backup-firebase-functions';
 
-//or
-
-const firestoreBackup = require('@sonicgarden/firestore-backup-firebase-functions');
-exports.exportFirestore = firestoreBackup.exportFirestore({
-  region: 'asia-northeast1',
-  schedule: '0 0 * * *',
-  timeZone: 'Asia/Tokyo',
-});
+export exportFirestore = functions
+  .region('asia-northeast1')
+  .pubsub.schedule('0 2 * * *')
+  .timeZone('Asia/Tokyo')
+  .onRun(() => firestoreBackup());
 ```
 
 ### Parameters
 
 | parameter  | required | default value                  |
 | ---------- | -------- | ------------------------------ |
-| region     | optional | asia-northeast1                |
-| schedule   | optional | 0 0 \* \* \*                   |
-| timeZone   | optional | Asia/Tokyo                     |
 | projectId  | optional | process.env.GCLOUD_PROJECT     |
 | bucketName | optional | ${projectId}-firestore-backups |
