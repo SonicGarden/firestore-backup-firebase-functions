@@ -17,7 +17,7 @@ import { firestoreBackup } from '@sonicgarden/firestore-backup-firebase-function
 
 export exportFirestore = functions
   .region('asia-northeast1')
-  .pubsub.schedule('0 0 * * *')
+  .pubsub.schedule('0 2 * * *')
   .timeZone('Asia/Tokyo')
   .onRun(() => firestoreBackup());
 ```
